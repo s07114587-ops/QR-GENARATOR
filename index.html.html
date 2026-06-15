@@ -1,353 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Studio v9.0 - Ultimate HTML Edition</title>
-    <link rel="icon" type="image/png" href="111.png">
-    <link rel="apple-touch-icon" href="111.png">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
-        body { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #1c1c1c; color: #fff; padding: 20px; transition: background 0.3s ease; }
-        
-        /* Header Styling */
-        .dev-header { width: 100%; max-width: 950px; margin-bottom: 20px; padding: 15px 20px; background: rgba(0,0,0,0.8); border-left: 5px solid cyan; box-shadow: 0 5px 15px rgba(0,255,255,0.1); border-radius: 8px; text-align: center; }
-        .dev-header span { font-size: 13px; color: deepskyblue; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; text-shadow: 0 0 5px deepskyblue; }
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Developer Studio v9.0 - Ultimate HTML Edition</title>
+		<style>
+			* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+			body { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #1c1c1c; color: #fff; padding: 20px; transition: background 0.3s ease; }
+			
+			/* Header Styling */
+			.dev-header { width: 100%; max-width: 950px; margin-bottom: 20px; padding: 15px 20px; background: rgba(0,0,0,0.8); border-left: 5px solid cyan; box-shadow: 0 5px 15px rgba(0,255,255,0.1); border-radius: 8px; text-align: center; }
+			.dev-header span { font-size: 13px; color: deepskyblue; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; text-shadow: 0 0 5px deepskyblue; }
 
-        /* Glassmorphism Effect Container */
-        .app-container { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(25px); 
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 20px; 
-            width: 100%;
-            max-width: 950px; 
-            display: flex; 
-            padding: 30px; 
-            gap: 30px; 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-        
-        .sidebar { width: 45%; display: flex; flex-direction: column; gap: 12px; }
-        .main-panel { width: 55%; display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: flex-start; position: relative; }
-        
-        label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-top: 4px; font-weight: 6px; }
-        input, select { width: 100%; padding: 12px; border-radius: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); color: #fff; cursor: pointer; transition: all 0.3s; }
-        input:focus, select:focus { border-color: #0078d4; outline: none; background: rgba(0,0,0,0.6); }
-        
-        .qr-wrapper { background: #fff; padding: 12px; border-radius: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border: 5px solid rgba(255,255,255,0.1); width: 154px; height: 154px; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
-        
-        /* Zoom Effect (Desktop) */
-        @media (min-width: 769px) {
-            .qr-wrapper:hover { transform: scale(1.8); z-index: 50; box-shadow: 0 15px 50px rgba(0, 120, 212, 0.8); }
-        }
-        
-        #qrcode img { width: 130px !important; height: 130px !important; }
-        
-        .win-btn { background: rgba(0, 120, 212, 0.8); color: #fff; border: none; padding: 14px; border-radius: 10px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
-        .win-btn:hover { background: #0078d4; transform: translateY(-1px); }
-        
-        .copy-btn { background: rgba(255,255,255,0.1); border: none; padding: 8px 12px; color: #fff; border-radius: 6px; cursor: pointer; font-size: 12px; margin-top: 8px; transition: 0.3s; }
-        .copy-btn:hover { background: #0078d4; }
-        
-        .display-box { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; width: 100%; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+			/* Glassmorphism Effect Container */
+			.app-container { 
+				background: rgba(255, 255, 255, 0.05); 
+				backdrop-filter: blur(25px); 
+				-webkit-backdrop-filter: blur(25px);
+				border: 1px solid rgba(255, 255, 255, 0.1); 
+				border-radius: 20px; 
+				width: 100%;
+				max-width: 950px; 
+				display: flex; 
+				padding: 30px; 
+				gap: 30px; 
+				box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+				position: relative;
+			}
+			
+			.sidebar { width: 45%; display: flex; flex-direction: column; gap: 12px; }
+			.main-panel { width: 55%; display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: center; position: relative; }
+			
+			label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-top: 4px; font-weight: 6px; }
+			input, select { width: 100%; padding: 12px; border-radius: 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); color: #fff; cursor: pointer; transition: all 0.3s; }
+			input:focus, select:focus { border-color: #0078d4; outline: none; background: rgba(0,0,0,0.6); }
+			
+			.qr-wrapper { background: #fff; padding: 12px; border-radius: 12px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border: 5px solid rgba(255,255,255,0.1); width: 154px; height: 154px; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 1; }
+			
+			/* Zoom Effect (Desktop) */
+			@media (min-width: 769px) {
+				.qr-wrapper:hover { transform: scale(1.8); z-index: 50; box-shadow: 0 15px 50px rgba(0, 120, 212, 0.8); }
+			}
+			
+			#qrcode img { width: 130px !important; height: 130px !important; }
+			
+			.win-btn { background: rgba(0, 120, 212, 0.8); color: #fff; border: none; padding: 14px; border-radius: 10px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+			.win-btn:hover { background: #0078d4; transform: translateY(-1px); }
+			
+			.copy-btn { background: rgba(255,255,255,0.1); border: none; padding: 8px 12px; color: #fff; border-radius: 6px; cursor: pointer; font-size: 12px; margin-top: 8px; transition: 0.3s; }
+			.copy-btn:hover { background: #0078d4; }
+			
+			.display-box { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; width: 100%; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
 
-        /* IP Box Styling */
-        .ip-box { background: rgba(0, 0, 0, 0.4); padding: 20px; border-radius: 12px; width: 100%; border: 1px solid rgba(0, 255, 204, 0.3); text-align: left; box-shadow: inset 0 0 15px rgba(0,255,204,0.05); }
-        .ip-tips li { margin-bottom: 8px; font-size: 13px; color: #ccc; }
-        .ip-tips strong { color: #00ffcc; }
+			/* Clock & Palette Styles */
+			#clockDisplay { background: rgba(0,0,0,0.4); padding: 12px; border-radius: 10px; text-align: center; font-size: 14px; font-weight: bold; color: #00ffcc; border: 1px solid rgba(0, 255, 204, 0.2); box-shadow: inset 0 0 10px rgba(0,255,204,0.05); }
+			#paletteBox { display: flex; gap: 8px; margin-top: 5px; height: 35px; }
 
-        /* Clock & Palette Styles */
-        #clockDisplay { background: rgba(0,0,0,0.4); padding: 12px; border-radius: 10px; text-align: center; font-size: 14px; font-weight: bold; color: #00ffcc; border: 1px solid rgba(0, 255, 204, 0.2); box-shadow: inset 0 0 10px rgba(0,255,204,0.05); }
-        #paletteBox { display: flex; gap: 8px; margin-top: 5px; height: 35px; }
+			/* Snippets Modal */
+			.snippets-modal {
+				display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+				background: rgba(20, 20, 20, 0.98); border-radius: 20px; padding: 25px; 
+				flex-direction: column; z-index: 100;
+			}
+			.snippets-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+			.snippets-list { overflow-y: auto; height: 85%; padding-right: 10px; display: flex; flex-direction: column; gap: 12px; }
+			
+			/* Custom Scrollbar */
+			.snippets-list::-webkit-scrollbar { width: 6px; }
+			.snippets-list::-webkit-scrollbar-thumb { background: #0078d4; border-radius: 10px; }
 
-        /* Snippets Modal */
-        .snippets-modal {
-            display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(20, 20, 20, 0.98); border-radius: 20px; padding: 25px; 
-            flex-direction: column; z-index: 100;
-        }
-        .snippets-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        .snippets-list { overflow-y: auto; height: 85%; padding-right: 10px; display: flex; flex-direction: column; gap: 12px; }
-        
-        /* Custom Scrollbar */
-        .snippets-list::-webkit-scrollbar { width: 6px; }
-        .snippets-list::-webkit-scrollbar-thumb { background: #0078d4; border-radius: 10px; }
+			.snippet-item { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
+			.snippet-item:hover { background: rgba(255,255,255,0.07); border-color: #00ffcc; }
+			.snippet-code { font-family: "Consolas", monospace; color: #00ffcc; font-size: 13px; word-break: break-all; margin-bottom: 8px; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; }
+			.snippet-desc { font-size: 13px; color: #ddd; margin-bottom: 8px; font-weight: 500; }
+			.close-btn { background: #d83b01; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+			.close-btn:hover { background: #e81123; }
+			
+			.flex-row { display: flex; gap: 10px; }
 
-        .snippet-item { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); transition: 0.3s; }
-        .snippet-item:hover { background: rgba(255,255,255,0.07); border-color: #00ffcc; }
-        .snippet-code { font-family: "Consolas", monospace; color: #00ffcc; font-size: 13px; word-break: break-all; margin-bottom: 8px; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 4px; }
-        .snippet-desc { font-size: 13px; color: #ddd; margin-bottom: 8px; font-weight: 500; }
-        .close-btn { background: #d83b01; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.2s; }
-        .close-btn:hover { background: #e81123; }
-        
-        .flex-row { display: flex; gap: 10px; }
+			/* ==========================================
+			   RESPONSIVE DESIGN (TABLETS & MOBILE)
+			   ========================================== */
+			@media (max-width: 768px) {
+				body { padding: 12px; justify-content: flex-start; }
+				.dev-header { margin-bottom: 12px; }
+				.app-container { flex-direction: column; padding: 20px; gap: 20px; }
+				.sidebar, .main-panel { width: 100%; }
+				.main-panel { order: -1; margin-bottom: 10px; } /* Shows the preview & QR first on mobile */
+				.qr-wrapper { margin: 10px auto; }
+				.qr-wrapper:active { transform: scale(1.2); } /* Gentle pop effect on phone taps instead of extreme zoom */
+				.snippets-modal { position: fixed; width: 100vw; height: 100vh; border-radius: 0; left: 0; top: 0; padding: 15px; }
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js"></script>
+	</head>
+	<body>
+		
+		<div class="dev-header">
+			<span>This Web Developed by Shubhomoy (sg)</span>
+		</div>
 
-        /* RESPONSIVE DESIGN (TABLETS & MOBILE) */
-        @media (max-width: 768px) {
-            body { padding: 12px; justify-content: flex-start; }
-            .dev-header { margin-bottom: 12px; }
-            .app-container { flex-direction: column; padding: 20px; gap: 20px; }
-            .sidebar, .main-panel { width: 100%; }
-            .main-panel { order: -1; margin-bottom: 10px; } 
-            .qr-wrapper { margin: 10px auto; }
-            .qr-wrapper:active { transform: scale(1.2); } 
-            .snippets-modal { position: fixed; width: 100vw; height: 100vh; border-radius: 0; left: 0; top: 0; padding: 15px; }
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js"></script>
-</head>
-<body>
-    
-    <div class="dev-header">
-        <span>This Web Developed by Shubhomoy (sg)</span>
-    </div>
+		<div class="app-container">
+			
+			<div class="sidebar">
+				<h2>Developer Studio</h2>
+				
+				<div id="clockDisplay">Loading Time...</div>
 
-    <div class="app-container">
-        
-        <div class="sidebar">
-            <h2>Developer Studio</h2>
-            
-            <div id="clockDisplay">Loading Time...</div>
+				<label>Canvas Color</label>
+				<input type="color" id="appColor" value="#1C1C1C" oninput="updateAll()">
+				
+				<button class="copy-btn" onclick="generatePalette()" style="background: rgba(255, 255, 255, 0.15); width: 100%; margin: 5px 0 0 0; padding: 10px;">🎨 Generate Random Palette</button>
+				<div id="paletteBox"></div>
 
-            <label>Canvas Color</label>
-            <input type="color" id="appColor" value="#1C1C1C" oninput="updateAll()">
-            
-            <button class="copy-btn" onclick="generatePalette()" style="background: rgba(255, 255, 255, 0.15); width: 100%; margin: 5px 0 0 0; padding: 10px;">🎨 Generate Random Palette</button>
-            <div id="paletteBox"></div>
+				<label>QR Grid Color</label>
+				<input type="color" id="qrColor" value="#000000" oninput="updateAll()">
+				
+				<label>System Font</label>
+				<select id="fontSelect" onchange="updateAll()">
+					<option value="Segoe UI">Segoe UI</option>
+					<option value="Algerian">Algerian</option>
+					<option value="Arial">Arial</option>
+					<option value="Helvetica">Helvetica</option>
+					<option value="Verdana">Verdana</option>
+					<option value="Consolas">Consolas</option>
+					<option value="Impact">Impact</option>
+					<option value="Comic Sans MS">Comic Sans MS</option>
+				</select>
+				
+				<label>QR Content Text</label>
+				<input type="text" id="qrText" value="Subhamoy" oninput="updateAll()">
+				
+				<div class="flex-row" style="margin-top: 5px;">
+					<select id="qrSize">
+						<option value="448">Size: 448x448</option>
+						<option value="640">Size: 640x640</option>
+					</select>
+					<select id="imgFormat">
+						<option value="image/png">PNG</option>
+						<option value="image/jpeg">JPG</option>
+					</select>
+				</div>
+				
+				<button class="win-btn" style="background: #107c41; margin-top: 10px;" onclick="toggleSnippets()">🔥 HTML Commands (57)</button>
+			</div>
+			
+			<div class="main-panel">
+				<div class="display-box">
+					<p style="font-size: 14px; color: #aaa;">HEX CODE</p>
+					<p><span id="hexDisplay" style="font-weight: bold; font-size: 18px; color: #00ffcc;">#1C1C1C</span></p>
+					<button class="copy-btn" onclick="copyHex()">Copy HEX Code</button>
+					
+					<p style="margin-top:20px; font-size: 14px; color: #aaa;">ACTIVE FONT</p>
+					<p><span id="fontDisplay" style="font-size: 20px; font-weight: bold;">Segoe UI</span></p>
+					<button class="copy-btn" onclick="copyFont()">Copy Font Name</button>
+				</div>
+				<div class="qr-wrapper" id="qrcode"></div>
+				
+				<button class="win-btn" onclick="downloadQR()">Download Custom QR</button>
+			</div>
 
-            <label>QR Grid Color</label>
-            <input type="color" id="qrColor" value="#000000" oninput="updateAll()">
-            
-            <label>System Font</label>
-            <select id="fontSelect" onchange="updateAll()">
-                <option value="Segoe UI">Segoe UI</option>
-                <option value="Algerian">Algerian</option>
-                <option value="Arial">Arial</option>
-                <option value="Helvetica">Helvetica</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Consolas">Consolas</option>
-                <option value="Impact">Impact</option>
-                <option value="Comic Sans MS">Comic Sans MS</option>
-            </select>
-            
-            <label>QR Content Text</label>
-            <input type="text" id="qrText" value="Subhamoy" oninput="updateAll()">
-            
-            <div class="flex-row" style="margin-top: 5px;">
-                <select id="qrSize">
-                    <option value="448">Size: 448x448</option>
-                    <option value="640">Size: 640x640</option>
-                </select>
-                <select id="imgFormat">
-                    <option value="image/png">PNG</option>
-                    <option value="image/jpeg">JPG</option>
-                </select>
-            </div>
-            
-            <button class="win-btn" style="background: #107c41; margin-top: 10px;" onclick="toggleSnippets()">🔥 HTML Commands (57)</button>
-        </div>
-        
-        <div class="main-panel">
-            <div class="display-box">
-                <p style="font-size: 14px; color: #aaa;">HEX CODE</p>
-                <p><span id="hexDisplay" style="font-weight: bold; font-size: 18px; color: #00ffcc;">#1C1C1C</span></p>
-                <button class="copy-btn" onclick="copyHex()">Copy HEX Code</button>
-                
-                <p style="margin-top:15px; font-size: 14px; color: #aaa;">ACTIVE FONT</p>
-                <p><span id="fontDisplay" style="font-size: 20px; font-weight: bold;">Segoe UI</span></p>
-                <button class="copy-btn" onclick="copyFont()">Copy Font Name</button>
-            </div>
-            
-            <div class="qr-wrapper" id="qrcode"></div>
-            <button class="win-btn" onclick="downloadQR()">Download Custom QR</button>
+			<div class="snippets-modal" id="snippetsModal">
+				<div class="snippets-header">
+					<h2>Top 57 HTML Commands</h2>
+					<button class="close-btn" onclick="toggleSnippets()">Close X</button>
+				</div>
+				<div class="snippets-list" id="snippetContainer"></div>
+			</div>
 
-            <div class="ip-box">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="color: #fff; font-size: 16px;">🌍 Network Scanner</h3>
-                    <button class="copy-btn" onclick="fetchIP()" style="margin: 0; padding: 4px 8px; font-size: 11px;">🔄 Refresh</button>
-                </div>
-                
-                <p style="font-size: 12px; color: #aaa; margin-bottom: 2px;">YOUR PUBLIC IP:</p>
-                <p><span id="ipDisplay" style="font-weight: bold; font-size: 24px; color: #00ffcc; letter-spacing: 1px;">Scanning...</span></p>
-                <p id="ipDetails" style="font-size: 12px; color: #ddd; margin-top: 4px; line-height: 1.4;">Location: Scanning...</p>
-                
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
-                
-                <h4 style="color: #ff4500; font-size: 14px; margin-bottom: 8px;">🛡️ Pro Tips to Hide Your IP:</h4>
-                <ul class="ip-tips" style="padding-left: 18px;">
-                    <li><strong>Use a VPN:</strong> (Like ProtonVPN/NordVPN) It completely changes your IP and encrypts data. Best method.</li>
-                    <li><strong>Tor Browser:</strong> Bounces your connection through multiple global servers. Super secure but slow.</li>
-                    <li><strong>Proxy Servers:</strong> Hides your IP for specific websites, but doesn't encrypt your entire network.</li>
-                    <li><strong>Cloudflare WARP:</strong> (1.1.1.1) Hides your traffic from your ISP for better privacy.</li>
-                </ul>
-            </div>
-        </div>
+		</div>
+		
+		<script>
+			// Live Clock Logic
+			function updateClock() {
+				const now = new Date();
+				document.getElementById('clockDisplay').innerText = now.toLocaleString();
+			}
+			setInterval(updateClock, 1000);
+			updateClock();
 
-        <div class="snippets-modal" id="snippetsModal">
-            <div class="snippets-header">
-                <h2>Top 57 HTML Commands</h2>
-                <button class="close-btn" onclick="toggleSnippets()">Close X</button>
-            </div>
-            <div class="snippets-list" id="snippetContainer"></div>
-        </div>
+			// Color Palette Generator
+			function generatePalette() {
+				let pBox = document.getElementById("paletteBox");
+				pBox.innerHTML = "";
+				for(let i = 0; i < 5; i++) {
+					let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
+					let div = document.createElement("div");
+					div.style.backgroundColor = randomColor;
+					div.style.flex = "1";
+					div.style.borderRadius = "6px";
+					div.style.cursor = "pointer";
+					div.style.transition = "transform 0.2s";
+					div.title = "Click to copy: " + randomColor;
+					div.onmouseenter = () => div.style.transform = "scale(1.1)";
+					div.onmouseleave = () => div.style.transform = "scale(1)";
+					div.onclick = function() {
+						navigator.clipboard.writeText(randomColor);
+						alert(randomColor + " Copied!");
+					};
+					pBox.appendChild(div);
+				}
+			}
+			generatePalette();
 
-    </div>
-    
-    <script>
-        // Live Clock Logic
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('clockDisplay').innerText = now.toLocaleString();
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+			// Real-time Display UI Updater
+			function updateAll() {
+				let appCol = document.getElementById("appColor").value.toUpperCase();
+				let qrCol = document.getElementById("qrColor").value;
+				let font = document.getElementById("fontSelect").value;
+				let text = document.getElementById("qrText").value;
+				
+				document.body.style.backgroundColor = appCol;
+				document.getElementById("hexDisplay").innerText = appCol;
+				document.getElementById("fontDisplay").innerText = font;
+				document.getElementById("fontDisplay").style.fontFamily = font;
+				
+				let qrContainer = document.getElementById("qrcode");
+				qrContainer.innerHTML = "";
+				
+				try {
+					new QRCode(qrContainer, {text: text, width: 130, height: 130, colorDark: qrCol, colorLight: "#ffffff"});
+				} catch (err) {
+					qrContainer.innerHTML = "<span style='color:red; font-size:11px; font-weight:bold;'>Need Internet for QR</span>";
+				}
+			}
+			
+			function copyHex() {
+				navigator.clipboard.writeText(document.getElementById("hexDisplay").innerText);
+				alert("HEX Code Copied!");
+			}
 
-        // Color Palette Generator
-        function generatePalette() {
-            let pBox = document.getElementById("paletteBox");
-            pBox.innerHTML = "";
-            for(let i = 0; i < 5; i++) {
-                let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
-                let div = document.createElement("div");
-                div.style.backgroundColor = randomColor;
-                div.style.flex = "1";
-                div.style.borderRadius = "6px";
-                div.style.cursor = "pointer";
-                div.style.transition = "transform 0.2s";
-                div.title = "Click to copy: " + randomColor;
-                div.onmouseenter = () => div.style.transform = "scale(1.1)";
-                div.onmouseleave = () => div.style.transform = "scale(1)";
-                div.onclick = function() {
-                    navigator.clipboard.writeText(randomColor);
-                    alert(randomColor + " Copied!");
-                };
-                pBox.appendChild(div);
-            }
-        }
-        generatePalette();
+			function copyFont() {
+				let fontName = document.getElementById("fontDisplay").innerText;
+				navigator.clipboard.writeText(fontName);
+				alert("Font Name Copied: " + fontName);
+			}
+			
+			// Advanced Download Function
+			function downloadQR() {
+				let text = document.getElementById("qrText").value;
+				let qrCol = document.getElementById("qrColor").value;
+				let finalSize = parseInt(document.getElementById("qrSize").value);
+				let format = document.getElementById("imgFormat").value;
+				
+				if(!text) {
+					alert("Please enter some text!");
+					return;
+				}
 
-        // IP Address Fetcher Logic
-        async function fetchIP() {
-            const ipDisplay = document.getElementById('ipDisplay');
-            const ipDetails = document.getElementById('ipDetails');
-            ipDisplay.innerText = "Scanning...";
-            ipDetails.innerText = "Location: Scanning...";
-            
-            try {
-                let response = await fetch('https://ipinfo.io/json');
-                let data = await response.json();
-                ipDisplay.innerText = data.ip || "Unknown";
-                ipDetails.innerText = `City: ${data.city}, ${data.country}\nISP: ${data.org}`;
-            } catch (error) {
-                ipDisplay.innerText = "Adblock Error";
-                ipDisplay.style.color = "#ff3333";
-                ipDetails.innerText = "Could not fetch IP. Please check your connection or turn off Adblockers/Brave Shields for this site.";
-            }
-        }
+				let padding = 40; 
+				let actualQRSize = finalSize - (padding * 2);
+				let tempDiv = document.createElement("div");
+				
+				try {
+					new QRCode(tempDiv, {
+						text: text, 
+						width: actualQRSize, 
+						height: actualQRSize, 
+						colorDark: qrCol, 
+						colorLight: "#ffffff"
+					});
+					
+					setTimeout(() => {
+						let tempCanvas = tempDiv.querySelector("canvas");
+						if(tempCanvas) {
+							let exportCanvas = document.createElement("canvas");
+							exportCanvas.width = finalSize;
+							exportCanvas.height = finalSize;
+							let ctx = exportCanvas.getContext("2d");
+							
+							ctx.fillStyle = "#ffffff";
+							ctx.fillRect(0, 0, finalSize, finalSize);
+							ctx.drawImage(tempCanvas, padding, padding, actualQRSize, actualQRSize);
+							
+							let link = document.createElement("a");
+							let ext = format === "image/jpeg" ? "jpg" : "png";
+							link.download = "My_Custom_QR_" + finalSize + "x" + finalSize + "." + ext;
+							link.href = exportCanvas.toDataURL(format);
+							link.click();
+						} else {
+							alert("Failed to create image. Check internet connection.");
+						}
+					}, 300); 
 
-        // Real-time Display UI Updater
-        function updateAll() {
-            let appCol = document.getElementById("appColor").value.toUpperCase();
-            let qrCol = document.getElementById("qrColor").value;
-            let font = document.getElementById("fontSelect").value;
-            let text = document.getElementById("qrText").value;
-            
-            document.body.style.backgroundColor = appCol;
-            document.getElementById("hexDisplay").innerText = appCol;
-            document.getElementById("fontDisplay").innerText = font;
-            document.getElementById("fontDisplay").style.fontFamily = font;
-            
-            let qrContainer = document.getElementById("qrcode");
-            qrContainer.innerHTML = "";
-            
-            try {
-                new QRCode(qrContainer, {text: text, width: 130, height: 130, colorDark: qrCol, colorLight: "#ffffff"});
-            } catch (err) {
-                qrContainer.innerHTML = "<span style='color:red; font-size:11px; font-weight:bold;'>Need Internet</span>";
-            }
-        }
-        
-        function copyHex() {
-            navigator.clipboard.writeText(document.getElementById("hexDisplay").innerText);
-            alert("HEX Code Copied!");
-        }
+				} catch (err) {
+					alert("Need Internet to generate high-res QR!");
+				}
+			}
 
-        function copyFont() {
-            let fontName = document.getElementById("fontDisplay").innerText;
-            navigator.clipboard.writeText(fontName);
-            alert("Font Name Copied: " + fontName);
-        }
-        
-        // Advanced Download Function
-        function downloadQR() {
-            let text = document.getElementById("qrText").value;
-            let qrCol = document.getElementById("qrColor").value;
-            let finalSize = parseInt(document.getElementById("qrSize").value);
-            let format = document.getElementById("imgFormat").value;
-            
-            if(!text) {
-                alert("Please enter some text!");
-                return;
-            }
+			// 57 HTML Commands Library
+			const htmlCommands = [
+				{ code: '<time datetime="2026-05-28 10:20">May 28, 2026</time>', desc: "Defines a specific time or date for machines and search engines to read easily." },
+				{ code: '<details>\n  <summary>Click to Expand</summary>\n  <p>Hidden content here!</p>\n</details>', desc: "Creates an interactive dropdown/accordion without any JavaScript." },
+				{ code: '<progress value="70" max="100">70%</progress>', desc: "Creates a progress bar to show completion status." },
+				{ code: 'This is <mark>highlighted</mark> text.', desc: "Highlights text with a yellow background, like a marker pen." },
+				{ code: '<body bgcolor="#6F86CE">', desc: "Sets the background color of the webpage." },
+				{ code: '<style>\n  body {\n    background-image: url("img.jpg");\n    background-size: cover;\n    background-position: center;\n    background-attachment: fixed;\n  }\n</style>', desc: "CSS to fit ANY background image perfectly." },
+				{ code: '<del>This text is cut</del>', desc: "Draws a line through the text (Strikethrough)." },
+				{ code: '<a href="https://example.com" target="_blank">Click Here</a>', desc: "Creates a clickable Hyperlink." },
+				{ code: '<marquee bgcolor="green" width="100%">Welcome!</marquee>', desc: "Used to create scrolling or animated text." },
+				{ code: '<meta name="viewport" content="width=device-width, initial-scale=1.0">', desc: "Essential for responsive mobile design." },
+				{ code: '<!DOCTYPE html>', desc: "Informs the browser that the document is HTML5." },
+				{ code: '<link rel="stylesheet" href="style.css">', desc: "Connects an external CSS stylesheet." },
+				{ code: '<img src="image.jpg" alt="Description" width="300">', desc: "Embeds an image into the webpage." },
+				{ code: '<script src="script.js"><\/script>', desc: "Connects an external JavaScript file." },
+				{ code: '<h1>Main Heading</h1>', desc: "Defines the main heading on the page." },
+				{ code: '<p>This is a paragraph.</p>', desc: "Used for standard text paragraphs." },
+				{ code: '<ul>\n  <li>Item 1</li>\n</ul>', desc: "Creates an Unordered List (bullet points)." },
+				{ code: '<table border="1">\n  <tr>\n    <td>Cell 1</td>\n  </tr>\n</table>', desc: "Creates a table to organize data." },
+				{ code: '<button onclick="alert(\'Hello!\')">Click Me</button>', desc: "Creates an interactive button." },
+				{ code: '<div class="container">Content</div>', desc: "A container element to group sections." },
+				{ code: '<span style="color:red;">Text</span>', desc: "Used to style a specific inline text." },
+				{ code: '<strong>Bold Text</strong>', desc: "Makes text bold." },
+				{ code: '<br>', desc: "Inserts a single line break." },
+				{ code: '<hr>', desc: "Draws a horizontal line." },
+				{ code: '<audio controls src="song.mp3"></audio>', desc: "Embeds an audio player." },
+				{ code: '', desc: "Hidden comments inside the code." },
+				{ code: '<iframe src="https://example.com" width="100%" height="300"></iframe>', desc: "Embeds another webpage." },
+				{ code: '<textarea rows="4" cols="50">Enter text...</textarea>', desc: "Creates a multi-line text box." },
+				{ code: '<select>\n  <option value="1">Option 1</option>\n</select>', desc: "Creates a dropdown list." },
+				{ code: '<form action="/submit" method="POST">\n</form>', desc: "Creates a form wrapper." },
+				{ code: '<video controls width="500">\n  <source src="vid.mp4" type="video/mp4">\n</video>', desc: "Embeds a video player." },
+				{ code: '<header>\n  <h1>Header</h1>\n</header>', desc: "Defines the header section." },
+				{ code: '<footer>\n  <p>Copyright</p>\n</footer>', desc: "Defines the footer section." },
+				{ code: '<nav>\n  <a href="#home">Home</a>\n</nav>', desc: "Defines navigation links." },
+				{ code: '<style>\n  body { background: black; }\n</style>', desc: "Internal CSS inside HTML." },
+				{ code: '<i>Italic Text</i>', desc: "Makes the text italic." },
+				{ code: '<s>Strikethrough Text</s>', desc: "Pure HTML way to strike through text." },
+				{ code: '<input type="text">', desc: "Standard text input field." },
+				{ code: '<input type="file">', desc: "Allows the user to upload a file." },
+				{ code: '<input type="button" value="Click Me">', desc: "Creates a clickable button for forms." },
+				{ code: '<input type="checkbox">', desc: "Creates a checkbox for multiple options." },
+				{ code: '<input type="color">', desc: "Creates a color picker dialog." },
+				{ code: '<input type="date">', desc: "Creates a date picker field." },
+				{ code: '<input type="email">', desc: "Creates a field for an email address." },
+				{ code: '<input type="password">', desc: "Creates a masked password field." },
+				{ code: '<input type="month">', desc: "Creates a month and year selector." },
+				{ code: '<input type="number">', desc: "Creates a number input field." },
+				{ code: '<input type="url">', desc: "Creates a field for a website URL." },
+				{ code: '<input type="radio" name="choice">', desc: "Creates a radio button for a single choice." },
+				{ code: '<input type="range">', desc: "Creates a slider for a range of values." },
+				{ code: '<input type="reset">', desc: "Creates a reset button to clear forms." },
+				{ code: '<input type="search">', desc: "Creates a search input field." },
+				{ code: '<input type="submit">', desc: "Creates a form submit button." },
+				{ code: '<input type="tel">', desc: "Creates a field for telephone numbers." },
+				{ code: '<input type="time">', desc: "Creates a time selection field." },
+				{ code: '<input type="week">', desc: "Creates a week and year selector." }
+			];
 
-            let padding = 40; 
-            let actualQRSize = finalSize - (padding * 2);
-            let tempDiv = document.createElement("div");
-            
-            try {
-                new QRCode(tempDiv, {
-                    text: text, 
-                    width: actualQRSize, 
-                    height: actualQRSize, 
-                    colorDark: qrCol, 
-                    colorLight: "#ffffff"
-                });
-                
-                setTimeout(() => {
-                    let tempCanvas = tempDiv.querySelector("canvas");
-                    if(tempCanvas) {
-                        let exportCanvas = document.createElement("canvas");
-                        exportCanvas.width = finalSize;
-                        exportCanvas.height = finalSize;
-                        let ctx = exportCanvas.getContext("2d");
-                        
-                        ctx.fillStyle = "#ffffff";
-                        ctx.fillRect(0, 0, finalSize, finalSize);
-                        ctx.drawImage(tempCanvas, padding, padding, actualQRSize, actualQRSize);
-                        
-                        let link = document.createElement("a");
-                        let ext = format === "image/jpeg" ? "jpg" : "png";
-                        link.download = "My_Custom_QR_" + finalSize + "x" + finalSize + "." + ext;
-                        link.href = exportCanvas.toDataURL(format);
-                        link.click();
-                    } else {
-                        alert("Failed to create image. Check internet connection.");
-                    }
-                }, 300); 
+			function loadSnippets() {
+				const container = document.getElementById("snippetContainer");
+				container.innerHTML = ""; 
+				htmlCommands.forEach((cmd, index) => {
+					const div = document.createElement("div");
+					div.className = "snippet-item";
+					div.innerHTML = `
+						<div class="snippet-desc"><strong>${index + 1}.</strong> ${cmd.desc}</div>
+						<div class="snippet-code">${cmd.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</div>
+						<button class="copy-btn" onclick="copySnippet(${index})">Copy Code</button>
+					`;
+					container.appendChild(div);
+				});
+			}
 
-            } catch (err) {
-                alert("Need Internet to generate high-res QR!");
-            }
-        }
+			function toggleSnippets() {
+				const modal = document.getElementById("snippetsModal");
+				if (modal.style.display === "flex") {
+					modal.style.display = "none";
+				} else {
+					modal.style.display = "flex";
+					loadSnippets();
+				}
+			}
 
-        // 57 HTML Commands Library
-        const htmlCommands = [
-            { code: '<time datetime="2026-05-28 10:20">May 28, 2026</time>', desc: "Defines a specific time or date for machines and search engines to read easily." },
-            { code: '<details>\n  <summary>Click to Expand</summary>\n  <p>Hidden content here!</p>\n</details>', desc: "Creates an interactive dropdown/accordion without any JavaScript." },
-            { code: '<progress value="70" max="100">70%</progress>', desc: "Creates a progress bar to show completion status." },
-            { code: 'This is <mark>highlighted</mark> text.', desc: "Highlights text with a yellow background, like a marker pen." },
-            { code: '<body bgcolor="#6F86CE">', desc: "Sets the background color of the webpage." },
-            { code: '<style>\n  body {\n    background-image: url("img.jpg");\n    background-size: cover;\n    background-position: center;\n    background-attachment: fixed;\n  }\n</style>', desc: "CSS to fit ANY background image perfectly." },
-            { code: '<del>This text is cut</del>', desc: "Draws a line through the text (Strikethrough)." },
-            { code: '<a href="https://example.com" target="_blank">Click Here</a>', desc: "Creates a clickable Hyperlink." },
-            { code: '<marquee bgcolor="green" width="100%">Welcome!</marquee>', desc: "Used to create scrolling or animated text." },
-            { code: '<meta name="viewport" content="width=device-width, initial-scale=1.0">', desc: "Essential for responsive mobile design." },
-            { code: '<!DOCTYPE html>', desc: "Informs the browser that the document is HTML5." },
-            { code: '<link rel="stylesheet" href="style.css">', desc: "Connects an external CSS stylesheet." },
-            { code: '<img src="image.jpg" alt="Description" width="300">', desc: "Embeds an image into the webpage." },
-            { code: '<script src="script.js"><\/script>', desc: "Connects an external JavaScript file." },
-            { code: '<h1>Main Heading</h1>', desc: "Defines the main heading on the page." },
-            { code: '<p>This is a paragraph.</p>', desc:
+			function copySnippet(index) {
+				const codeToCopy = htmlCommands[index].code;
+				navigator.clipboard.writeText(codeToCopy);
+				alert("Command Copied!");
+			}
+
+			// Initialize
+			updateAll();
+		</script>
+	</body>
+</html>
